@@ -1,0 +1,26 @@
+.parent{
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  justify-items: center;
+  margin: 0;
+}
+
+.grid-item-1{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  background-color: blue;
+  height:100%;
+  width: 100%;
+}
+
+.grid-item-3{
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  background-color: red;
+  height:100%;
+  width: 100%;
+}
