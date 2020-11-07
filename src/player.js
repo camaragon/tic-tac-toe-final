@@ -1,5 +1,6 @@
 class Player {
-  constructor() {
+  constructor(player) {
+    this.name = player
     this.id = 'one',
     this.token = '🔴' || '🔵';
     this.wins = [];
