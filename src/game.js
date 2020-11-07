@@ -1,8 +1,13 @@
 class Game {
-  constructor(player1, player2) {
-    this.players = [player1, player2];
-    this.gameboard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    this.playerTurn = player1;
+  constructor() {
+    this.player1 = new Player('Democrat', 1, '🔵');
+    this.player2 = new Player('Republican', 2, '🔴');
+    this.playerTurn = this.player1.name;
+    this.gameboard = [
+      1, 2, 3,
+      4, 5, 6,
+      7, 8, 9
+    ];
     this.winConditions = [
       [0, 1, 2],
       [3, 4, 5],
@@ -15,5 +20,13 @@ class Game {
     ];
   }
 
-
+  placeToken(spot) {
+    if (this.playerTurn === this.player1.name) {
+      this.gameboard.splice(spot, 1, this.player1.token);
+      this.playerTurn = this.player2.name;
+    }else {
+      this.gameboard.splice(spot, 1, this.player2.token);
+      this.playerTurn = this.player1.name;
+    }
+  }
 }
