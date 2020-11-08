@@ -3,8 +3,6 @@ class Game {
     this.player1 = new Player('Democrat', 1, '🔵');
     this.player2 = new Player('Republican', 2, '🔴');
     this.playerTurn = this.player1.name;
-    this.movesP1 = [];
-    this.movesP2 = [];
     this.gameboard = [
       1, 2, 3,
       4, 5, 6,
@@ -26,11 +24,13 @@ class Game {
     if (this.playerTurn === this.player1.name) {
       this.gameboard.splice(tokenIndex, 1, this.player1.token);
       this.playerTurn = this.player2.name;
-      this.movesP1.push(tokenIndex);
+      this.player1.moves.push(tokenIndex);
+      this.checkWin(this.player1);
     }else {
       this.gameboard.splice(tokenIndex, 1, this.player2.token);
       this.playerTurn = this.player1.name;
-      this.movesP2.push(tokenIndex);
+      this.player2.moves.push(tokenIndex);
+      this.checkWin(this.player2);
     }
   }
 
@@ -42,14 +42,12 @@ class Game {
     }
   }
 
-  declareWinner() {
+  checkWin(player) {
+    // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
-      if (this.movesP1.includes(this.winConditions[i][0] &&
+      if (player.moves.includes(this.winConditions[i][0] &&
           this.winConditions[i][1] && this.winConditions[i][2])) {
-            console.log('Player 1 wins');
-      }else if(this.movesP2.includes(this.winConditions[i][0] &&
-          this.winConditions[i][1] && this.winConditions[i][2])) {
-            console.log('Player 2 wins');
+            return console.log('Player 1 wins');
       }
     }
   }

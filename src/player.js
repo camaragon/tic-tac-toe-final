@@ -3,6 +3,7 @@ class Player {
     this.name = player,
     this.id = playerNum,
     this.token = token;
+    this.moves = [];
     this.wins = 0;
   }
 
