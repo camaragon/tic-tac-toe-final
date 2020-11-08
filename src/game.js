@@ -25,39 +25,41 @@ class Game {
     if (this.playerTurn === this.player1.name) {
       this.gameboard.splice(tokenIndex, 1, this.player1.token);
       this.player1.moves.push(tokenIndex);
-      this.checkWin(this.player1);
+      this.checkWinOrDraw(this.player1);
       this.playerTurn = this.player2.name;
     }else {
       this.gameboard.splice(tokenIndex, 1, this.player2.token);
       this.player2.moves.push(tokenIndex);
-      this.checkWin(this.player2);
+      this.checkWinOrDraw(this.player2);
       this.playerTurn = this.player1.name;
     }
   }
 
-  checkDraw() {
-    if (this.moveCount === 9) {
-      return console.log("It's a draw!");
-    }
-  }
+  // checkDraw() {
+  //   if (this.moveCount === 9) {
+  //     return console.log("It's a draw!");
+  //   }
+  // }
 
   playGame(tokenIndex) {
     if (this.gameboard[tokenIndex] != this.player1.token && this.player2.token) {
         this.placeToken(tokenIndex);
         this.moveCount++;
-        this.checkDraw();
+        // this.checkDraw();
     } else {
-      console.log('There is already a token there!');
+       return console.log('There is already a token there!');
     }
   }
 
-  checkWin(player) {
+  checkWinOrDraw(player) {
     // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
       if (player.moves.includes(this.winConditions[i][0]) &&
           player.moves.includes(this.winConditions[i][1]) &&
           player.moves.includes(this.winConditions[i][2])) {
             return console.log(`${player.name} wins!`);
+      } else if (this.moves === 9) {
+          return console.log("It's a draw!");
       }
     }
   }
