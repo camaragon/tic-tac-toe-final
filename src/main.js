@@ -3,5 +3,10 @@
 
 var newGame = new Game();
 
-newGame.placeToken(3);
-newGame.placeToken(0);
+// newGame.placeToken(3);
+// newGame.placeToken(0);
+newGame.playGame(1);
+newGame.playGame(3);
+newGame.playGame(8);
+newGame.playGame(1);
+// newGame.checkGameboard(1);
