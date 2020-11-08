@@ -41,6 +41,15 @@ class Game {
   //   }
   // }
 
+  resetGameboard() {
+     this.gameboard.length = 0;
+     for (var i = 1; i < 10; i++) {
+       this.gameboard.push(i);
+       console.log('The board is reset!')
+     }
+     // this.gameboard.from(this.gameboard(9).keys());
+  }
+
   playGame(tokenIndex) {
     if (this.gameboard[tokenIndex] != this.player1.token && this.player2.token) {
         this.placeToken(tokenIndex);
@@ -57,20 +66,11 @@ class Game {
       if (player.moves.includes(this.winConditions[i][0]) &&
           player.moves.includes(this.winConditions[i][1]) &&
           player.moves.includes(this.winConditions[i][2])) {
+            player.wins++;
             return console.log(`${player.name} wins!`);
       } else if (this.moves === 9) {
           return console.log("It's a draw!");
       }
     }
   }
-
-    // all indeces are called so no more
 }
-// for (var j = 0; j < this.movesP1.length; j++) {
-//   for (var k = 0; k < this.movesP2.length; k++) {
-
-// winConditions.forEach(function() {
-//     if (gameboard[combo[0]] && gameboard[combo[0]] === gameboard[combo[1]]
-//         && gameboard[combo[0]] === gameboard[combo[2]])
-//         console.log('You won!');
-//       });
