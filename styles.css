@@ -16,6 +16,13 @@
   width: 100%;
 }
 
+.grid-item-2{
+  display: grid;
+  grid-template-rows: 25% 75%;
+  justify-items: center;
+  justify-content: center;
+}
+
 .grid-item-3{
   display: grid;
   justify-content: center;
@@ -23,6 +30,40 @@
   background: linear-gradient(white, red);
   height:100%;
   width: 100%;
+}
+
+.gameboard{
+  display: grid;
+  /* grid-gap: 5%; */
+  grid-template-columns: repeat(3, auto);
+  width: 300%;
+  height: 75%;
+
+}
+
+div > div{
+  padding: 10%;
+}
+
+h1{
+  align-self: center;
+}
+
+.square{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 300%;
+}
+
+#S1,#S4,#S7,
+#S2,#S5,#S8{
+  border-right: 10px solid blue;
+}
+
+#S1,#S2,#S3,
+#S4,#S5,#S6{
+  border-bottom: 10px solid red;
 }
 
 .images{
