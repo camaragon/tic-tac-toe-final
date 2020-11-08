@@ -23,14 +23,14 @@ class Game {
   placeToken(tokenIndex) {
     if (this.playerTurn === this.player1.name) {
       this.gameboard.splice(tokenIndex, 1, this.player1.token);
-      this.playerTurn = this.player2.name;
       this.player1.moves.push(tokenIndex);
       this.checkWin(this.player1);
+      this.playerTurn = this.player2.name;
     }else {
       this.gameboard.splice(tokenIndex, 1, this.player2.token);
-      this.playerTurn = this.player1.name;
       this.player2.moves.push(tokenIndex);
       this.checkWin(this.player2);
+      this.playerTurn = this.player1.name;
     }
   }
 
@@ -45,18 +45,23 @@ class Game {
   checkWin(player) {
     // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
-      if (player.moves.includes(this.winConditions[i][0] &&
-          this.winConditions[i][1] && this.winConditions[i][2])) {
-            return console.log('Player 1 wins');
+      if (player.moves.includes(this.winConditions[i][0]) &&
+          player.moves.includes(this.winConditions[i][1]) &&
+          player.moves.includes(this.winConditions[i][2])) {
+            return console.log(`${player.name} wins!`);
       }
     }
+  }
+
+  checkDraw() {
+    
   }
 }
 // for (var j = 0; j < this.movesP1.length; j++) {
 //   for (var k = 0; k < this.movesP2.length; k++) {
 
-// winConditions.forEach(function(combo, index) {
-  //   if (gameboard[combo[0]] && gameboard[combo[0]] === gameboard[combo[1]]
-    //     && gameboard[combo[0]] === gameboard[combo[2]])
-    //     console.log('You won!');
-    //   });
+// winConditions.forEach(function() {
+//     if (gameboard[combo[0]] && gameboard[combo[0]] === gameboard[combo[1]]
+//         && gameboard[combo[0]] === gameboard[combo[2]])
+//         console.log('You won!');
+//       });

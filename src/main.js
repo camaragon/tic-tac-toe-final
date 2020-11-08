@@ -9,6 +9,6 @@ newGame.playGame(1);
 newGame.playGame(3);
 newGame.playGame(0);
 newGame.playGame(8);
-
+newGame.playGame(2);
 
 // newGame.checkGameboard(1);
