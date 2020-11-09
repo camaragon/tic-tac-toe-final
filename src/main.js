@@ -1,6 +1,7 @@
 var gameboard = document.querySelector('.gameboard');
 var allSlots = Array.from(document.querySelectorAll('.square'));
-var slot = document.querySelector('.square');
+var alert = document.querySelector('h1');
+// var slot = document.querySelector('.square');
 var newGame = new Game();
 
 gameboard.addEventListener('click', clickSlot)
@@ -10,19 +11,39 @@ function clickSlot(event) {
   var slot = allSlots.findIndex(function(targetSlot) {
     return targetSlot === event.target;
   });
-  if (newGame.playerTurn === newGame.player1.id) {
-    newGame.playGame(slot);
-    allSlots[slot].innerText = newGame.player1.token;
-    newGame.checkWinOrDraw(newGame.player1);
-    newGame.playerTurn = newGame.player2.id;
-  } else {
-    newGame.playGame(slot);
-    allSlots[slot].innerText = newGame.player2.token;
-    newGame.checkWinOrDraw(newGame.player2)
-    newGame.playerTurn = newGame.player1.id;
-  }
+  // alert.innerText = `${newGame.player1.token}'s Turn!`
+  checkSlot(slot);
   }
 
+
+function checkSlot(slot) {
+  if (allSlots[slot].innerText != newGame.player1.token && 
+    allSlots[slot].innerText != newGame.player2.token) {
+    runGame(slot);
+  }else {
+    return alert.innerText = 'There is already a token there!'
+  }
+}
+
+  function runGame(slot) {
+    if (newGame.playerTurn === newGame.player1.id) {
+      newGame.playGame(slot);
+      allSlots[slot].innerText = newGame.player1.token;
+      newGame.checkWinOrDraw(newGame.player1);
+      newGame.playerTurn = newGame.player2.id;
+      alert.innerText = `${newGame.player2.token}'s Turn!`
+    } else {
+      newGame.playGame(slot);
+      allSlots[slot].innerText = newGame.player2.token;
+      newGame.checkWinOrDraw(newGame.player2)
+      newGame.playerTurn = newGame.player1.id;
+      alert.innerText = `${newGame.player1.token}'s Turn!`
+    }
+  }
+
+  function switchPlayers() {
+
+  }
   // }
   // var targetSlot = event.target;
   // console.log(targetSlot);

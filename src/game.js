@@ -48,7 +48,8 @@ class Game {
   }
 
   playGame(tokenIndex) {
-    if (this.gameboard[tokenIndex] != this.player1.token && this.player2.token) {
+    if (this.gameboard[tokenIndex] != this.player1.token &&
+      this.gameboard[tokenIndex] != this.player2.token) {
         this.placeToken(tokenIndex);
         this.moveCount++;
     } else {
