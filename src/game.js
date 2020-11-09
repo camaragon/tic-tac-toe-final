@@ -1,8 +1,8 @@
 class Game {
   constructor() {
-    this.player1 = new Player('Democrat', 1, '🔵');
-    this.player2 = new Player('Republican', 2, '🔴');
-    this.playerTurn = this.player1.name;
+    this.player1 = new Player('Democrat', 'Player 1', '🔵');
+    this.player2 = new Player('Republican', 'Player 2', '🔴');
+    this.playerTurn = this.player1.id;
     this.moveCount = 0;
     this.gameboard = [
       1, 2, 3,
@@ -22,16 +22,16 @@ class Game {
   }
 
   placeToken(tokenIndex) {
-    if (this.playerTurn === this.player1.name) {
+    if (this.playerTurn === this.player1.id) {
       this.gameboard.splice(tokenIndex, 1, this.player1.token);
       this.player1.moves.push(tokenIndex);
       this.checkWinOrDraw(this.player1);
-      this.playerTurn = this.player2.name;
+      this.playerTurn = this.player2.id;
     }else {
       this.gameboard.splice(tokenIndex, 1, this.player2.token);
       this.player2.moves.push(tokenIndex);
       this.checkWinOrDraw(this.player2);
-      this.playerTurn = this.player1.name;
+      this.playerTurn = this.player1.id;
     }
   }
 
@@ -41,9 +41,13 @@ class Game {
   //   }
   // }
 
-  resetGameboard() {
-     this.gameboard.length = 0;
-     for (var i = 1; i < 10; i++) {
+  resetGame() {
+    this.player1.moves.length = 0;
+    this.player2.moves.length = 0;
+    this.gameboard.length = 0;
+    this.moveCount = 0;
+    this.playerTurn = this.player1.id;
+    for (var i = 1; i < 10; i++) {
        this.gameboard.push(i);
        console.log('The board is reset!')
      }
@@ -54,7 +58,6 @@ class Game {
     if (this.gameboard[tokenIndex] != this.player1.token && this.player2.token) {
         this.placeToken(tokenIndex);
         this.moveCount++;
-        // this.checkDraw();
     } else {
        return console.log('There is already a token there!');
     }
@@ -68,8 +71,10 @@ class Game {
           player.moves.includes(this.winConditions[i][2])) {
             player.wins++;
             return console.log(`${player.name} wins!`);
+            // return setTimeout(this.resetGame(), 10000);
       } else if (this.moves === 9) {
-          return console.log("It's a draw!");
+          console.log("It's a draw!");
+          return setTimeout(this.resetGame(), 10000);
       }
     }
   }
