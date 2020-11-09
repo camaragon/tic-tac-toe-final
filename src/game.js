@@ -35,12 +35,6 @@ class Game {
     }
   }
 
-  // checkDraw() {
-  //   if (this.moveCount === 9) {
-  //     return console.log("It's a draw!");
-  //   }
-  // }
-
   resetGame() {
     this.player1.moves.length = 0;
     this.player2.moves.length = 0;
@@ -51,7 +45,6 @@ class Game {
        this.gameboard.push(i);
        console.log('The board is reset!')
      }
-     // this.gameboard.from(this.gameboard(9).keys());
   }
 
   playGame(tokenIndex) {
@@ -73,8 +66,8 @@ class Game {
             return console.log(`${player.name} wins!`);
             // return setTimeout(this.resetGame(), 10000);
       } else if (this.moves === 9) {
-          console.log("It's a draw!");
-          return setTimeout(this.resetGame(), 10000);
+          return console.log("It's a draw!");
+          // return setTimeout(this.resetGame(), 10000);
       }
     }
   }

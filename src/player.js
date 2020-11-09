@@ -9,11 +9,11 @@ class Player {
 
   saveWinsToStorage() {
     var stringifiedWins = JSON.stringify(this.wins);
-    localStorage.setItem(`${this.id} storedPlayerWins`, stringifiedWins);
+    localStorage.setItem(`${this.id} storedWins`, stringifiedWins);
   }
 
   retrieveWinsFromStorage() {
-    var retrievedWins = localStorage.getItem(`${this.id} storedPlayerWins`);
-    parsedWins = JSON.parse(retrievedWins);
+    var retrievedWins = localStorage.getItem(`${this.id} storedWins`);
+    this.wins = JSON.parse(retrievedWins);
   }
 }
