@@ -10,8 +10,19 @@ function clickSlot(event) {
   var slot = allSlots.findIndex(function(targetSlot) {
     return targetSlot === event.target;
   });
-  newGame.playGame(slot);
+  if (newGame.playerTurn === newGame.player1.id) {
+    newGame.playGame(slot);
+    allSlots[slot].innerText = newGame.player1.token;
+    newGame.checkWinOrDraw(newGame.player1);
+    newGame.playerTurn = newGame.player2.id;
+  } else {
+    newGame.playGame(slot);
+    allSlots[slot].innerText = newGame.player2.token;
+    newGame.checkWinOrDraw(newGame.player2)
+    newGame.playerTurn = newGame.player1.id;
   }
+  }
+
   // }
   // var targetSlot = event.target;
   // console.log(targetSlot);
@@ -33,15 +44,3 @@ function clickSlot(event) {
 //     gameboard[i].innerText = newGame.
 //   }
 // }
-
-
-
-
-
-
-
-
-// window.addEventListener('load', function() {
-//   newGame.retrievedWinsFromStorage();
-//
-// })
