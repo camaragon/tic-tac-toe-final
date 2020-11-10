@@ -72,5 +72,5 @@ function makeTimeout() {
   gameboard.disabled = true;
   setTimeout(function() {
     window.location.reload(1);
-  }, 5000);
+  }, 3000);
 }
