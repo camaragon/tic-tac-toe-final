@@ -8,7 +8,9 @@ var newGame = new Game();
 gameboard.addEventListener('click', clickSlot);
 window.addEventListener('load', loadData);
 
-function loadData() {
+function loadData(player) {
+  newGame.player1.retrieveWinsFromStorage();
+  newGame.player2.retrieveWinsFromStorage();
   player1Wins.innerText = `${newGame.player1.wins} Win's`;
   player2Wins.innerText = `${newGame.player2.wins} Win's`;
 }
@@ -51,13 +53,17 @@ function checkSlot(tokenIndex) {
 function checkWin(player) {
   if (player.win === true) {
     alert.innerText = `${player.name} wins!`;
-    setTimeout(function() {
-      window.location.reload(1);
-    }, 5000);
+    player.saveWinsToStorage();
+    makeTimeout();
   }else if (newGame.draw === true) {
     alert.innerText = "It's a tie!";
-    setTimeout(function() {
-      window.location.reload(1);
-    }, 5000);
+    makeTimeout();
   }
 };
+
+function makeTimeout() {
+  gameboard.disabled = true;
+  setTimeout(function() {
+    window.location.reload(1);
+  }, 5000);
+}
