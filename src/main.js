@@ -1,7 +1,7 @@
 var gameboard = document.querySelector('.gameboard');
 var allSlots = Array.from(document.querySelectorAll('.square'));
 var alert = document.querySelector('h1');
-// var slot = document.querySelector('.square');
+
 var newGame = new Game();
 
 gameboard.addEventListener('click', clickSlot)
@@ -41,9 +41,11 @@ function checkSlot(tokenIndex) {
   }
 
 function checkWin(player) {
-  // debugger
+  debugger
   if (player.win === true) {
-    return alert.innerText = `${player.name} wins!`;
+    alert.innerText = `${player.name} wins!`;
+  }else if (newGame.draw === true) {
+    alert.innerText = "It's a tie!";
   }
 };
   // }
