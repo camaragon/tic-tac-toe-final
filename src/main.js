@@ -1,11 +1,17 @@
 var gameboard = document.querySelector('.gameboard');
 var allSlots = Array.from(document.querySelectorAll('.square'));
 var alert = document.querySelector('h1');
-
+var player1Wins = document.querySelector('.P1-wins');
+var player2Wins = document.querySelector('.P2-wins');
 var newGame = new Game();
 
-gameboard.addEventListener('click', clickSlot)
+gameboard.addEventListener('click', clickSlot);
+window.addEventListener('load', loadData);
 
+function loadData() {
+  player1Wins.innerText = `${newGame.player1.wins} Win's`;
+  player2Wins.innerText = `${newGame.player2.wins} Win's`;
+}
 
 function clickSlot(event) {
   var tokenIndex = allSlots.findIndex(function(targetSlot) {
@@ -32,40 +38,20 @@ function checkSlot(tokenIndex) {
       allSlots[tokenIndex].innerText = newGame.player1.token;
       alert.innerText = `${newGame.player2.token}'s Turn!`
       checkWin(newGame.player1);
+      player1Wins.innerText = `${newGame.player1.wins} Win's`;
     } else {
       newGame.playGame(tokenIndex);
       allSlots[tokenIndex].innerText = newGame.player2.token;
       alert.innerText = `${newGame.player1.token}'s Turn!`
       checkWin(newGame.player2);
+      player2Wins.innerText = `${newGame.player2.wins} Win's`;
     }
   }
 
 function checkWin(player) {
-  debugger
   if (player.win === true) {
     alert.innerText = `${player.name} wins!`;
   }else if (newGame.draw === true) {
     alert.innerText = "It's a tie!";
   }
 };
-  // }
-  // var targetSlot = event.target;
-  // console.log(targetSlot);
-  // console.log(allSlots);
-  // }
-
-    // var targetSpot = event.target;
-    // allSlots.findIndex(targetSpot);
-
-// function playGameDOM() {
-//
-//
-//   have a node list of all 9 indeces and there respective values
-//   iterate through the nodeList and use innerText to add token
-//   for (var i = 0; i < gameboard.length; i++) {
-//     if (newGame.)
-//     event.target
-//     newGame.playGame(gameboard[i])
-//     gameboard[i].innerText = newGame.
-//   }
-// }

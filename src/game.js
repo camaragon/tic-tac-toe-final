@@ -41,10 +41,12 @@ class Game {
     this.player2.moves.length = 0;
     this.gameboard.length = 0;
     this.moveCount = 0;
+    this.draw = 0;
+    this.win = 0;
     this.playerTurn = this.player1.id;
     for (var i = 1; i < 10; i++) {
        this.gameboard.push(i);
-       console.log('The board is reset!')
+       console.log('The game is reset!')
      }
   }
 
