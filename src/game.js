@@ -58,16 +58,17 @@ class Game {
   }
 
   checkWinOrDraw(player) {
-    // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
       if (player.moves.includes(this.winConditions[i][0]) &&
           player.moves.includes(this.winConditions[i][1]) &&
           player.moves.includes(this.winConditions[i][2])) {
             player.wins++;
-            return console.log(`${player.name} wins!`);
+            return player.win = true;
+            // return alert.innerText = `${player.name} wins!`;
+            // return console.log(`${player.name} wins!`);
             // return setTimeout(this.resetGame(), 10000);
       } else if (this.moves === 9) {
-          return console.log("It's a draw!");
+          return alert.innerText = "It's a draw!";
           // return setTimeout(this.resetGame(), 10000);
       }
     }

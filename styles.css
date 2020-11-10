@@ -38,6 +38,7 @@
   grid-template-columns: repeat(3, auto);
   width: 300%;
   height: 75%;
+  cursor: crosshair;
 
 }
 

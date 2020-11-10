@@ -8,42 +8,44 @@ gameboard.addEventListener('click', clickSlot)
 
 
 function clickSlot(event) {
-  var slot = allSlots.findIndex(function(targetSlot) {
+  var tokenIndex = allSlots.findIndex(function(targetSlot) {
     return targetSlot === event.target;
   });
   // alert.innerText = `${newGame.player1.token}'s Turn!`
-  checkSlot(slot);
+  checkSlot(tokenIndex);
   }
 
 
-function checkSlot(slot) {
-  if (allSlots[slot].innerText != newGame.player1.token && 
-    allSlots[slot].innerText != newGame.player2.token) {
-    runGame(slot);
+function checkSlot(tokenIndex) {
+  if (allSlots[tokenIndex].innerText != newGame.player1.token &&
+    allSlots[tokenIndex].innerText != newGame.player2.token) {
+    runGame(tokenIndex);
   }else {
     return alert.innerText = 'There is already a token there!'
   }
 }
 
-  function runGame(slot) {
+  function runGame(tokenIndex) {
+    // debugger
     if (newGame.playerTurn === newGame.player1.id) {
-      newGame.playGame(slot);
-      allSlots[slot].innerText = newGame.player1.token;
-      newGame.checkWinOrDraw(newGame.player1);
-      newGame.playerTurn = newGame.player2.id;
+      newGame.playGame(tokenIndex);
+      allSlots[tokenIndex].innerText = newGame.player1.token;
       alert.innerText = `${newGame.player2.token}'s Turn!`
+      checkWin(newGame.player1);
     } else {
-      newGame.playGame(slot);
-      allSlots[slot].innerText = newGame.player2.token;
-      newGame.checkWinOrDraw(newGame.player2)
-      newGame.playerTurn = newGame.player1.id;
+      newGame.playGame(tokenIndex);
+      allSlots[tokenIndex].innerText = newGame.player2.token;
       alert.innerText = `${newGame.player1.token}'s Turn!`
+      checkWin(newGame.player2);
     }
   }
 
-  function switchPlayers() {
-
+function checkWin(player) {
+  // debugger
+  if (player.win === true) {
+    return alert.innerText = `${player.name} wins!`;
   }
+};
   // }
   // var targetSlot = event.target;
   // console.log(targetSlot);
