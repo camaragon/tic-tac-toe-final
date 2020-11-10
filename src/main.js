@@ -12,13 +12,13 @@ function loadData(player) {
   if(localStorage.length < 2) {
     newGame.player1.saveWinsToStorage();
     newGame.player2.saveWinsToStorage();
-    player1Wins.innerText = `${newGame.player1.wins}`;
-    player2Wins.innerText = `${newGame.player2.wins}`;
+    player1Wins.innerText = `WINS: ${newGame.player1.wins}`;
+    player2Wins.innerText = `WINS: ${newGame.player2.wins}`;
   }else {
     newGame.player1.retrieveWinsFromStorage();
     newGame.player2.retrieveWinsFromStorage();
-    player1Wins.innerText = `${newGame.player1.wins}`;
-    player2Wins.innerText = `${newGame.player2.wins}`;
+    player1Wins.innerText = `WINS: ${newGame.player1.wins}`;
+    player2Wins.innerText = `WINS: ${newGame.player2.wins}`;
   }
 }
 

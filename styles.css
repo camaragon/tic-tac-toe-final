@@ -18,7 +18,7 @@
 .grid-item-1,
 .grid-item-3{
   display: grid;
-  grid-template-rows: 25% 75%;
+  grid-template-rows: 50% 50%;
   justify-content: center;
   align-content: space-between;
   height:100%;
@@ -34,28 +34,50 @@
   width: 100%;
 } */
 
-.player1-name,
-.player2-name{
+.P1,
+.P2{
   display: grid;
   justify-content: center;
+  justify-items: center;
   align-content: end;
+}
+
+.P1-name{
+  font-size: 300%;
+  color: blue;
+}
+
+.P2-name{
+  font-size: 300%;
+  color: red;
 }
 
 .P1-win-box{
   display: grid;
   align-self: center;
-  height: 30%;
-  background: blue;
+  color: blue;
+  justify-content: center;
+  align-content: center;
+}
+
+.P2-win-box{
+  display: grid;
+  align-self: center;
+  color: red;
   justify-content: center;
   align-content: center;
 }
 
 .P1-wins,
 .P2-wins{
-  font-size: 300%;
+  font-size: 400%;
   margin: 0;
 }
 
+.images{
+  width: 30%;
+  height: 30%;
+}
 
 .grid-item-2{
   display: grid;
@@ -72,7 +94,6 @@
   width: 300%;
   height: 75%;
   cursor: crosshair;
-
 }
 
 div > div{
@@ -98,9 +119,4 @@ h1{
 #S1,#S2,#S3,
 #S4,#S5,#S6{
   border-bottom: 10px solid red;
-}
-
-.images{
-  width: 60px;
-  height: 50px;
 }
