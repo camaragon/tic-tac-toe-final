@@ -5,6 +5,7 @@ class Player {
     this.token = token;
     this.moves = [];
     this.wins = 0;
+    this.win = false;
   }
 
   saveWinsToStorage() {

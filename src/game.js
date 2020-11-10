@@ -4,6 +4,7 @@ class Game {
     this.player2 = new Player('Republican', 'Player 2', '🔴');
     this.playerTurn = this.player1.id;
     this.moveCount = 0;
+    this.draw = false;
     this.gameboard = [
       1, 2, 3,
       4, 5, 6,
@@ -48,11 +49,18 @@ class Game {
   }
 
   playGame(tokenIndex) {
-    if (this.gameboard[tokenIndex] != this.player1.token && this.player2.token) {
-        this.placeToken(tokenIndex);
+    if (this.gameboard[tokenIndex] != this.player1.token &&
+      this.gameboard[tokenIndex] != this.player2.token) {
         this.moveCount++;
+        this.placeToken(tokenIndex);
     } else {
        return console.log('There is already a token there!');
+    }
+  }
+
+  checkDraw() {
+    if (this.moveCount === 9) {
+      this.draw = true;
     }
   }
 
@@ -60,15 +68,19 @@ class Game {
     // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
       if (player.moves.includes(this.winConditions[i][0]) &&
-          player.moves.includes(this.winConditions[i][1]) &&
-          player.moves.includes(this.winConditions[i][2])) {
-            player.wins++;
-            return console.log(`${player.name} wins!`);
-            // return setTimeout(this.resetGame(), 10000);
-      } else if (this.moves === 9) {
-          return console.log("It's a draw!");
-          // return setTimeout(this.resetGame(), 10000);
+      player.moves.includes(this.winConditions[i][1]) &&
+      player.moves.includes(this.winConditions[i][2])) {
+        player.wins++;
+        player.win = true;
       }
+    }
+    if (player.win === false) {
+      this.checkDraw();
     }
   }
 }
+// return alert.innerText = `${player.name} wins!`;
+// return console.log(`${player.name} wins!`);
+// return setTimeout(this.resetGame(), 10000);
+// return this.draw = true;
+// return setTimeout(this.resetGame(), 10000);
