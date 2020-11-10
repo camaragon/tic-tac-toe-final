@@ -51,7 +51,13 @@ function checkSlot(tokenIndex) {
 function checkWin(player) {
   if (player.win === true) {
     alert.innerText = `${player.name} wins!`;
+    setTimeout(function() {
+      window.location.reload(1);
+    }, 5000);
   }else if (newGame.draw === true) {
     alert.innerText = "It's a tie!";
+    setTimeout(function() {
+      window.location.reload(1);
+    }, 5000);
   }
 };
