@@ -12,13 +12,13 @@ function loadData(player) {
   if(localStorage.length < 2) {
     newGame.player1.saveWinsToStorage();
     newGame.player2.saveWinsToStorage();
-    player1Wins.innerText = `${newGame.player1.wins} Win's`;
-    player2Wins.innerText = `${newGame.player2.wins} Win's`;
+    player1Wins.innerText = `${newGame.player1.wins}`;
+    player2Wins.innerText = `${newGame.player2.wins}`;
   }else {
     newGame.player1.retrieveWinsFromStorage();
     newGame.player2.retrieveWinsFromStorage();
-    player1Wins.innerText = `${newGame.player1.wins} Win's`;
-    player2Wins.innerText = `${newGame.player2.wins} Win's`;
+    player1Wins.innerText = `${newGame.player1.wins}`;
+    player2Wins.innerText = `${newGame.player2.wins}`;
   }
 }
 
@@ -47,13 +47,13 @@ function checkSlot(tokenIndex) {
       allSlots[tokenIndex].innerText = newGame.player1.token;
       alert.innerText = `${newGame.player2.token}'s Turn!`
       checkWin(newGame.player1);
-      player1Wins.innerText = `${newGame.player1.wins} Win's`;
+      player1Wins.innerText = `${newGame.player1.wins} Wins!`;
     } else {
       newGame.playGame(tokenIndex);
       allSlots[tokenIndex].innerText = newGame.player2.token;
       alert.innerText = `${newGame.player1.token}'s Turn!`
       checkWin(newGame.player2);
-      player2Wins.innerText = `${newGame.player2.wins} Win's`;
+      player2Wins.innerText = `${newGame.player2.wins} Wins!`;
     }
   }
 
