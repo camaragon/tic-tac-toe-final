@@ -9,10 +9,17 @@ gameboard.addEventListener('click', clickSlot);
 window.addEventListener('load', loadData);
 
 function loadData(player) {
-  newGame.player1.retrieveWinsFromStorage();
-  newGame.player2.retrieveWinsFromStorage();
-  player1Wins.innerText = `${newGame.player1.wins} Win's`;
-  player2Wins.innerText = `${newGame.player2.wins} Win's`;
+  if(localStorage.length < 2) {
+    newGame.player1.saveWinsToStorage();
+    newGame.player2.saveWinsToStorage();
+    player1Wins.innerText = `${newGame.player1.wins} Win's`;
+    player2Wins.innerText = `${newGame.player2.wins} Win's`;
+  }else {
+    newGame.player1.retrieveWinsFromStorage();
+    newGame.player2.retrieveWinsFromStorage();
+    player1Wins.innerText = `${newGame.player1.wins} Win's`;
+    player2Wins.innerText = `${newGame.player2.wins} Win's`;
+  }
 }
 
 function clickSlot(event) {
