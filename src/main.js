@@ -36,7 +36,7 @@ function checkSlot(tokenIndex) {
     allSlots[tokenIndex].innerText != newGame.player2.token) {
     runGame(tokenIndex);
   }else {
-    return alert.innerText = 'There is already a token there!'
+    return alert.innerText = 'Already a token!'
   }
 }
 

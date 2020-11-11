@@ -12,7 +12,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
-
 }
 
 .grid-item-1,
@@ -25,15 +24,6 @@
   width: 100%;
 }
 
-/* .grid-item-3{
-  display: grid;
-  justify-content: center;
-  align-content: start;
-  background: linear-gradient(white, red);
-  height:100%;
-  width: 100%;
-} */
-
 .P1,
 .P2{
   display: grid;
@@ -45,11 +35,15 @@
 .P1-name{
   font-size: 300%;
   color: blue;
+  background: white;
+  border-radius: 10px;
 }
 
 .P2-name{
   font-size: 300%;
   color: red;
+  background: white;
+  border-radius: 10px;
 }
 
 .P1-win-box{
@@ -70,13 +64,17 @@
 
 .P1-wins,
 .P2-wins{
+  background: white;
   font-size: 400%;
   margin: 0;
+  border-radius: 10px;
 }
 
 .images{
   width: 30%;
   height: 30%;
+  background: white;
+  border-radius: 10px;
 }
 
 .grid-item-2{
@@ -89,8 +87,8 @@
 
 .gameboard{
   display: grid;
-  /* grid-gap: 5%; */
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   width: 300%;
   height: 75%;
   cursor: crosshair;
@@ -102,21 +100,24 @@ div > div{
 
 h1{
   align-self: center;
+  background: white;
+  border-radius: 10px;
+  font-size: 30px;
 }
 
 .square{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 300%;
+  font-size: 350%;
 }
 
-#S1,#S4,#S7,
-#S2,#S5,#S8{
+.S1,.S4,.S7,
+.S2,.S5,.S8{
   border-right: 10px solid blue;
 }
 
-#S1,#S2,#S3,
-#S4,#S5,#S6{
+.S1,.S2,.S3,
+.S4,.S5,.S6{
   border-bottom: 10px solid red;
 }
