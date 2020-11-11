@@ -60,14 +60,7 @@ class Game {
     }
   }
 
-  checkDraw() {
-    if (this.moveCount === 9) {
-      this.draw = true;
-    }
-  }
-
   checkWinOrDraw(player) {
-    // debugger
     for (var i = 0; i < this.winConditions.length; i++) {
       if (player.moves.includes(this.winConditions[i][0]) &&
       player.moves.includes(this.winConditions[i][1]) &&
@@ -80,9 +73,10 @@ class Game {
       this.checkDraw();
     }
   }
-}
-// return alert.innerText = `${player.name} wins!`;
-// return console.log(`${player.name} wins!`);
-// return setTimeout(this.resetGame(), 10000);
-// return this.draw = true;
-// return setTimeout(this.resetGame(), 10000);
+
+  checkDraw() {
+    if (this.moveCount === 9) {
+      this.draw = true;
+    }
+  }
+};

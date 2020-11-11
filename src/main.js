@@ -20,57 +20,54 @@ function loadData(player) {
     player1Wins.innerText = `WINS: ${newGame.player1.wins}`;
     player2Wins.innerText = `WINS: ${newGame.player2.wins}`;
   }
-}
+};
 
 function clickSlot(event) {
   var tokenIndex = allSlots.findIndex(function(targetSlot) {
     return targetSlot === event.target;
   });
-  // alert.innerText = `${newGame.player1.token}'s Turn!`
   checkSlot(tokenIndex);
-  }
-
+};
 
 function checkSlot(tokenIndex) {
   if (allSlots[tokenIndex].innerText != newGame.player1.token &&
     allSlots[tokenIndex].innerText != newGame.player2.token) {
     runGame(tokenIndex);
   }else {
-    return alert.innerText = 'Already a token!'
-  }
-}
-
-  function runGame(tokenIndex) {
-    // debugger
-    if (newGame.playerTurn === newGame.player1.id) {
-      newGame.playGame(tokenIndex);
-      allSlots[tokenIndex].innerText = newGame.player1.token;
-      alert.innerText = `${newGame.player2.token}'s Turn!`
-      checkWin(newGame.player1);
-      player1Wins.innerText = `${newGame.player1.wins} Wins!`;
-    } else {
-      newGame.playGame(tokenIndex);
-      allSlots[tokenIndex].innerText = newGame.player2.token;
-      alert.innerText = `${newGame.player1.token}'s Turn!`
-      checkWin(newGame.player2);
-      player2Wins.innerText = `${newGame.player2.wins} Wins!`;
-    }
-  }
-
-function checkWin(player) {
-  if (player.win === true) {
-    alert.innerText = `${player.name} wins!`;
-    player.saveWinsToStorage();
-    makeTimeout();
-  }else if (newGame.draw === true) {
-    alert.innerText = "It's a tie!";
-    makeTimeout();
+    alert.innerText = 'Already a token!'
   }
 };
 
-function makeTimeout() {
+function runGame(tokenIndex) {
+  if (newGame.playerTurn === newGame.player1.id) {
+    newGame.playGame(tokenIndex);
+    allSlots[tokenIndex].innerText = newGame.player1.token;
+    alert.innerText = `${newGame.player2.token}'s Turn!`
+    checkWinAndDraw(newGame.player1);
+    player1Wins.innerText = `WINS: ${newGame.player1.wins}`;
+  }else {
+    newGame.playGame(tokenIndex);
+    allSlots[tokenIndex].innerText = newGame.player2.token;
+    alert.innerText = `${newGame.player1.token}'s Turn!`
+    checkWinAndDraw(newGame.player2);
+    player2Wins.innerText = `WINS: ${newGame.player2.wins}`;
+  }
+};
+
+function checkWinAndDraw(player) {
+  if (player.win === true) {
+    alert.innerText = `${player.name} WINS!`;
+    player.saveWinsToStorage();
+    endGame();
+  }else if (newGame.draw === true) {
+    alert.innerText = "It's a TIE!";
+    endGame();
+  }
+};
+
+function endGame() {
   gameboard.classList.toggle('disable-click');
   setTimeout(function() {
     window.location.reload(1);
-  }, 3000);
-}
+  }, 3800);
+};
