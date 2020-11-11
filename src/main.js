@@ -43,18 +43,18 @@ function runGame(tokenIndex) {
     newGame.playGame(tokenIndex);
     allSlots[tokenIndex].innerText = newGame.player1.token;
     alert.innerText = `${newGame.player2.token}'s Turn!`
-    checkWin(newGame.player1);
+    checkWinAndDraw(newGame.player1);
     player1Wins.innerText = `WINS: ${newGame.player1.wins}`;
   }else {
     newGame.playGame(tokenIndex);
     allSlots[tokenIndex].innerText = newGame.player2.token;
     alert.innerText = `${newGame.player1.token}'s Turn!`
-    checkWin(newGame.player2);
+    checkWinAndDraw(newGame.player2);
     player2Wins.innerText = `WINS: ${newGame.player2.wins}`;
   }
 };
 
-function checkWin(player) {
+function checkWinAndDraw(player) {
   if (player.win === true) {
     alert.innerText = `${player.name} WINS!`;
     player.saveWinsToStorage();
@@ -69,5 +69,5 @@ function endGame() {
   gameboard.classList.toggle('disable-click');
   setTimeout(function() {
     window.location.reload(1);
-  }, 3500);
+  }, 3800);
 };
