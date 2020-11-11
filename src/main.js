@@ -69,7 +69,7 @@ function checkWin(player) {
 };
 
 function makeTimeout() {
-  gameboard.disabled = true;
+  gameboard.classList.toggle('disable-click');
   setTimeout(function() {
     window.location.reload(1);
   }, 3000);

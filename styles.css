@@ -3,6 +3,10 @@
   font-family: Optima, sans-serif
 }
 
+.disable-click{
+  pointer-events: none;
+}
+
 .parent{
   display: grid;
   grid-template-columns: 25% 50% 25%;
