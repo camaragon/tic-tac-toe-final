@@ -79,4 +79,4 @@ class Game {
       this.draw = true;
     }
   }
-}
+};
