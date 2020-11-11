@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="utf-8">
   <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="parent">
-  <section class="grid-item-1">
-    <h3>Democrat</h3>
-    <img class="images" src="assets/democrat.png" alt="democrat">
-    <p class="P1-wins"></p>
+  <section class="P1-sidebar">
+    <div class="P1">
+      <h3 class="P1-name">Democrat</h3>
+      <img class="images" src="assets/democrat.png" alt="democrat">
+    </div>
+    <div class=P1-win-box>
+      <p class="P1-wins"></p>
+    </div>
   </section>
-  <main class="grid-item-2">
-    <h1>🔵 your up!</h1>
+  <main class="tic-tac-toe">
+      <h1>It's 🔵 Turn!</h1>
     <article class="gameboard">
-      <div class="square" id="S1"></div>
-      <div class="square" id="S2"></div>
-      <div class="square" id="S3"></div>
-      <div class="square" id="S4"></div>
-      <div class="square" id="S5"></div>
-      <div class="square" id="S6"></div>
-      <div class="square" id="S7"></div>
-      <div class="square" id="S8"></div>
-      <div class="square" id="S9"></div>
+      <div class="square S1"></div>
+      <div class="square S2"></div>
+      <div class="square S3"></div>
+      <div class="square S4"></div>
+      <div class="square S5"></div>
+      <div class="square S6"></div>
+      <div class="square S7"></div>
+      <div class="square S8"></div>
+      <div class="square S9"></div>
     </article>
   </main>
-  <section class="grid-item-3">
-    <h3>Republican</h3>
-    <img class="images" src="assets/republican.png" alt="republican">
-    <p class="P2-wins"></p>
+  <section class="P2-sidebar">
+    <div class="P2">
+      <h3 class="P2-name">Republican</h3>
+      <img class="images" src="assets/republican.png" alt="republican">
+    </div>
+    <div class="P2-win-box">
+      <p class="P2-wins"></p>
+    </div>
   </section>
   <script src="./src/player.js"></script>
   <script src="./src/game.js"></script>
