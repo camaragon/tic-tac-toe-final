@@ -29,13 +29,12 @@ function clickSlot(event) {
   checkSlot(tokenIndex);
 };
 
-
 function checkSlot(tokenIndex) {
   if (allSlots[tokenIndex].innerText != newGame.player1.token &&
     allSlots[tokenIndex].innerText != newGame.player2.token) {
     runGame(tokenIndex);
   }else {
-    return alert.innerText = 'Already a token!'
+    alert.innerText = 'Already a token!'
   }
 };
 
