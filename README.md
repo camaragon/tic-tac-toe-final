@@ -11,6 +11,7 @@ To create all of the functionality in the Data Model and start there first. I wa
 - *JavaScript*
 - *HTML*
 - *CSS*
+- *Atom*
 - *WAVE*
 - *Chrome Developer Tools*
 - *GitHub*
