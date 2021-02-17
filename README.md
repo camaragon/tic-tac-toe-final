@@ -46,4 +46,4 @@ The contributor of this project is Cameron Aragon.
 
 ### Contact
 Please follow me on github to reach out about this or any other projects.
-- Cameron Aragon @caragon4695
+- [Cameron Aragon](https://github.com/camaragon)
